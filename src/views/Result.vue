@@ -22,7 +22,7 @@
         <sui-table-body>
           <sui-table-row v-for="(answer, index) in answers" :key="index">
             <sui-table-cell collapsing>
-              {{ index }}
+              {{ index + 1 }}
             </sui-table-cell>
             <sui-table-cell collapsing text-align="center">
               <template v-if="answer == correct[index]">

@@ -23,9 +23,9 @@
             </sui-menu-menu>
           </sui-menu>
         </sui-grid-row>
-        <sui-grid-row>
+        <sui-grid-row v-if="Text!=''">
           <sui-grid-column :width="9">
-            <div class="ui text article-text" >
+            <div class="ui text article-text">
               <h5>{{ TextTitle }}</h5>
               <h4 is="sui-header">{{ TextName }}</h4>
               <p v-html="Text"></p>
@@ -39,6 +39,16 @@
                 </sui-form-field>
               </sui-form-fields>
           </sui-grid-column>
+        </sui-grid-row>
+        <sui-grid-row v-else>
+          <sui-container>
+            <sui-form-fields grouped>
+              <h4 is="sui-header">{{ NowQuestion }}</h4>
+              <sui-form-field v-for="(text, key) in Choices" :key="key">
+                <sui-checkbox :label="text" radio :value="key" v-model="NowChoice"/>
+              </sui-form-field>
+            </sui-form-fields>
+          </sui-container>
         </sui-grid-row>
       </sui-grid>
     </sui-container>
